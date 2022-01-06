@@ -21,8 +21,5 @@ pub fn anagrams_for<'a>(word: &str, possible_anagrams: &[&'a str]) -> HashSet<&'
         .iter()
         .filter(|w| is_anagram(word, w))
         .cloned()
-        .fold(HashSet::new(), |mut hs, w| {
-            hs.insert(w);
-            hs
-        })
+        .collect()
 }
