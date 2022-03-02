@@ -3,10 +3,12 @@ pub fn primes_up_to(upper_bound: u64) -> Vec<u64> {
     let mut multiplier;
 
     for n in 2..=upper_bound {
-        multiplier = 2;
-        while n * multiplier <= upper_bound {
-            is_prime[(n * multiplier) as usize] = false;
-            multiplier += 1;
+        if is_prime[n as usize] {
+            multiplier = 2;
+            while n * multiplier <= upper_bound {
+                is_prime[(n * multiplier) as usize] = false;
+                multiplier += 1;
+            }
         }
     }
 
